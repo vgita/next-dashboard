@@ -1,11 +1,17 @@
+'use client';
+
+import { useSession } from 'next-auth/react';
 import Dashboard from '../../components/Dashboard';
 
 function DashboardPage() {
+  const { data: session } = useSession();
   return (
-    <>
-      <div>Dashboard page</div>
-      <Dashboard />
-    </>
+    session && (
+      <>
+        <div>Dashboard page</div>
+        <Dashboard />
+      </>
+    )
   );
 }
 
