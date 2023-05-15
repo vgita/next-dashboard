@@ -1,11 +1,8 @@
-import Header from '../components/Header';
-import SideMenu from '../components/SideMenu';
-import './globals.css';
-import styles from './page.module.css';
 import { Inter } from 'next/font/google';
 
 import { Session } from 'next-auth';
 import AuthSessionProvider from '@/components/AuthSessionProvider';
+import AppContent from '@/components/AppContent/AppContent';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -25,11 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AuthSessionProvider session={session}>
-          <main className={styles.main}>
-            <Header />
-            <SideMenu />
-            {children}
-          </main>
+          <AppContent>{children}</AppContent>
         </AuthSessionProvider>
       </body>
     </html>
