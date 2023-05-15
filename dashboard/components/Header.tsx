@@ -18,8 +18,6 @@ import { useState } from 'react';
 import ThemeToggleButton from './ThemeToggleButton/ThemeToggleButton';
 import { useMediaQuery } from '@mui/material';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-
 export type HeaderProps = {
   ColorModeContext: React.Context<{ toggleColorMode: () => void }>;
 };
@@ -99,13 +97,7 @@ const Header = (props: HeaderProps) => {
               sx={{
                 display: { xs: 'block', md: 'none' },
               }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+            ></Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
@@ -124,22 +116,11 @@ const Header = (props: HeaderProps) => {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            DataSoft
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
 
           {tabletCheck && (
-            <Box sx={{ paddingRight: 5 }}>
+            <Box sx={{ paddingRight: 5, marginLeft: 'auto' }}>
               {session && (
                 <Typography>Signed in as {session?.user?.email}</Typography>
               )}
